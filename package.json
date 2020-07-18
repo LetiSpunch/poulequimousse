@@ -4,8 +4,9 @@
   "description": "Site bac à sable savonnerie",
   "scripts": {},
   "dependencies": {
-    "bootstrap": "^3.3.5",
+    "bootstrap": "^4.5.0",
     "jquery": "^3.5.1",
+    "popper.js": "^1.16.1",
     "vue": "^2.6.6",
     "vue-axios": "^2.1.4",
     "vue-multiselect": "^2.1.0"

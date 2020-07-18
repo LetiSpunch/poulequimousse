@@ -3,57 +3,52 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <body>
-<nav class="nav" role="navigation" aria-label="main navigation" th:fragment="navbar">
-    <div class="container-fluid">
-        <div class="navbar-fixed-top">
-            <a class="navbar" th:href="@{/}">
-                <img src="/img/savon.jpeg" class="image logo" alt="">
-                <div class="navbar-brand">
-                    <span class="has-text-weight-bold" th:text="#{app.name}"></span>
-                    <br>
-                    <span th:text="#{app.subname}"></span>
-                </div>
-            </a>
-            <span role="button" id="burger-mobile-menu" class="glyphicon-menu-hamburger" data-target="navMenu" aria-label="menu" aria-expanded="false">
-						<span aria-hidden="true"></span>
-						<span aria-hidden="true"></span>
-						<span aria-hidden="true"></span>
-            </span>
-        </div>
-        <div id="nav-menu" class="navbar-link">
-            <div class="navbar">
-                <a class="navbar-link"
-                   th:href="@{/}"
-                   th:text="#{navbar.products}">
-                </a>
+<div th:fragment="navbar">
 
-                <a class="navbar-link"
-                   th:href="@{/tableau-de-bord}"
-                   th:classappend="${#strings.startsWith(@request.url, '/tableau-de-bord') && @request.url != '/tableau-de-bord/mon-profil' && @request.url != '/tableau-de-bord/offres' && @request.url != '/tableau-de-bord/calendriers' ? 'is-active' : ''}"
-                   th:text="#{navbar.dashboard}">
-                </a>
+    <!--Main Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" th:href="@{/}"><img src="/img/savon.jpeg" class="image logo" alt="" height="60"> </a>
+        <span class="navbar-brand" th:text="#{app.name}"></span>
 
-                <span class="navbar-item" sec:authorize="!isAuthenticated()">
-							<a th:href="@{/login}"
-                               th:classappend="${@request.url == '/login' ? 'is-active':''}" class="button">
-								 <span class="icon">
-									<i class="fas fa-sign-in-alt"></i>
-								 </span>
-								<span th:text="#{navbar.login}"></span>
-							</a>
-						</span>
-                <span class="navbar-link" sec:authorize="isAuthenticated()">
-							<a th:href="@{/logout}"
-                               class="button is-link is-inverted">
-								<span class="icon">
-									<i class="fas fa-sign-out-alt"></i>
-								</span>
-								<span th:text="#{navbar.logout}"></span>
-							</a>
-						</span>
-            </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" th:href="@{/}" th:text="Home"> <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/}">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" th:href="@{/}" th:text="Produits" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" th:href="@{/}">Savons</a>
+                        <a class="dropdown-item" th:href="@{/}">Autres cosmétiques</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" th:href="@{/}">Bougies</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" th:href="@{/}">Disabled</a>
+                </li>
+                <li class="nav-item" sec:authorize="!isAuthenticated()">
+                    <a class="nav-link" th:href="@{/}" th:classappend="${@request.url == '/login' ? 'is-active':''}" th:text="#{navbar.login}"></a>
+                </li>
+                <li class="nav-item" sec:authorize="isAuthenticated()">
+                    <a class="nav-link" th:href="@{/logout}" th:text="#{navbar.logout}">Se déconnecter</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
         </div>
-    </div>
-</nav>
+    </nav>
+</div>
+
+
 </body>
 </html>
