@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+<body>
+
+<section class="section" layout:fragment="main">
+    <div class="container">
+        <div class="columns">
+            <div class="column"><!-- Left empty for spacing --></div>
+            <div class="column is-half">
+                <div class="box">
+
+                    <h1 class="title" th:text="#{login.title}"></h1>
+
+                    <form th:action="@{/templates/home/login}" method="POST">
+
+                        <div th:replace="message :: success"></div>
+
+                        <article th:if="${param.error}" class="message is-danger">
+                            <div class="message-body" th:text="#{login.error.invalidCredentials}"></div>
+                        </article>
+
+                        <div class="field">
+                            <label class="label" for="email" th:text="#{login.email}"></label>
+                            <div class="field-body">
+                                <div class="field">
+                                    <div class="control">
+                                        <input class="input" type="text" id="email" name="email"
+                                               th:placeholder="#{login.email}"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label" for="password" th:text="#{login.password}"></label>
+                            <div class="field-body">
+                                <div class="field">
+                                    <div class="control">
+                                        <input class="input" type="password" id="password" name="password"
+                                               th:placeholder="#{login.password}"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="is-b-marged has-text-right">
+                            <a th:href="@{/login/forgot}" th:text="#{login.forgotPassword}"></a>
+                        </div>
+                        <div class="field is-horizontal">
+                            <div class="field-body">
+                                <div class="field">
+                                    <div class="columns is-multiline">
+                                        <div class="column is-7 is-full-touch">
+                                            <div class="control">
+                                            <span>
+                                                <input class="is-checkradio" type="checkbox" id="remember-me" name="remember-me">
+                                                <label for="remember-me" th:text="#{login.remindMe}"></label>
+                                            </span>
+                                            </div>
+                                        </div>
+                                        <div class="column is-5 is-full-touch">
+                                            <div class="control has-text-right-desktop">
+                                                <button class="button is-primary" type="Submit">
+                                                    <span class="icon">
+                                                        <i class="fas fa-check"></i>
+                                                    </span>
+                                                    <span th:text="#{login.submit}"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="field is-horizontal">
+                            <div class="field-body">
+                                <div class="field has-text-centered">
+                                    <span th:text="#{login.openAccountLabel}"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field is-horizontal">
+                            <div class="field-body">
+                                <div class="field has-text-centered">
+                                    <a th:href="@{/demande-compte}" class="button is-primary">
+                                        <span class="icon">
+                                            <i class="fas fa-address-card"></i>
+                                        </span>
+                                        <span style="color: white" th:text="#{account.creation.create}"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="column"><!-- Left empty for spacing --></div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

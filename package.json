@@ -2,18 +2,17 @@
   "name": "lapoulequimousse",
   "version": "0.0.1",
   "description": "Site bac à sable savonnerie",
-  "scripts": {
-  },
+  "scripts": {},
   "dependencies": {
+    "bootstrap": "^3.3.5",
+    "jquery": "^3.5.1",
     "vue": "^2.6.6",
     "vue-axios": "^2.1.4",
     "vue-multiselect": "^2.1.0"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "repository": {
     "type": "github",
-    "url": "ssh://git@gogs.factory.digiwin.tech:10022/ars/poss.git"
-  },
-  "license": "ISC"
+    "url": "git@github.com:LetiSpunch/poulequimousse.git"
+  }
 }

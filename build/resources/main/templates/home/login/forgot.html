@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+<body>
+
+<section class="section" layout:fragment="main">
+    <div class="container">
+        <div class="columns">
+            <div class="column"><!-- Left empty for spacing --></div>
+            <div class="column is-half">
+                <div class="box">
+
+                    <h1 class="title" th:text="#{forgotPassword.title}"></h1>
+
+                    <article th:if="${success}" class="message is-success" th:fragment="success">
+                        <div class="message-body" th:text="${success}"></div>
+                    </article>
+
+                    <article th:if="${message}" class="message is-danger">
+                        <div class="message-body" th:text="${message}"></div>
+                    </article>
+
+                    <form th:action="@{/login/forgot}" method="POST">
+                        <div class="field">
+                            <label class="label" for="email" th:text="#{forgotPassword.email}"></label>
+                            <div class="field-body">
+                                <div class="field">
+                                    <div class="control">
+                                        <input class="input" type="text" id="email" name="email"
+                                               th:placeholder="#{forgotPassword.email}"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field is-horizontal">
+                            <div class="field-body">
+                                <div class="field">
+                                    <div class="columns is-multiline">
+                                        <div class="column is-full-touch">
+                                            <div class="control has-text-right-desktop">
+                                                <button class="button is-primary" type="Submit">
+                                                    <span class="icon">
+                                                        <i class="fas fa-check"></i>
+                                                    </span>
+                                                    <span th:text="#{generic.send}"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="column"><!-- Left empty for spacing --></div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
