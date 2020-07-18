@@ -1,0 +1,54 @@
+.gradle
+/build/
+!gradle/wrapper/gradle-wrapper.jar
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+/out/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### Docker ###
+.docker/config
+.env
+
+### Node ###
+node_modules
+
+### Assets ###
+src/main/resources/static/js/lib*
+src/main/resources/static/css/*
+!src/main/resources/static/css/main.css
+src/main/resources/static/webfonts
+
+### Uploads ###
+/uploads/
+src/main/resources/templates/\.DS_Store
+
+src/main/resources/\.DS_Store
+
+src/main/resources/static/\.DS_Store
+
+src/main/\.DS_Store
+
+\.DS_Store
+
+src/main/resources/static/css/main\.css
+

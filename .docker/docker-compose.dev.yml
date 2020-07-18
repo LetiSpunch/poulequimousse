@@ -1,0 +1,22 @@
+version : '3'
+services:
+    mysql:
+      ports:
+        - "${MYSQL_PORT}:3306"
+    phpmyadmin:
+      image: phpmyadmin/phpmyadmin:4.8.1
+      environment:
+        - PMA_HOST=mysql
+      ports:
+        - "${PHPMYADMIN_PORT}:81"
+    node:
+      image: node:9.11
+      working_dir: /app
+      user: root
+      volumes:
+        - ../:/app
+    smtp:
+      image: djfarrelly/maildev
+      ports:
+        - "${MAILDEV_PORT}:86"
+        - "${MAILDEV_SMTP_PORT}:25"
