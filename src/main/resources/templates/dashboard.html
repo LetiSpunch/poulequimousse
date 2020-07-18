@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+<body>
+
+<div class="columns" layout:fragment="main">
+    <div class="column is-2">
+        <div class="section">
+            <aside class="menu">
+                <ul class="menu-list" >
+                    <li>
+                        <a th:href="@{/tableau-de-bord}"
+                           th:classappend="${#strings.equals(@request.url, '/tableau-de-bord') ? 'is-active':''}"
+                           th:text="#{dashboard.activity}"></a>
+                    </li>
+                </ul>
+            </aside>
+        </div>
+    </div>
+    <div class="column is-10">
+        <div layout:fragment="dashboard"></div>
+    </div>
+</div>
+
+</body>
+</html>

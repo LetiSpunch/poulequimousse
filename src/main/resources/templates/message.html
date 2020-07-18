@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<div th:fragment="form">
+    <article th:if="${success}" class="message is-success" th:fragment="success">
+        <div class="message-body" th:text="${success}"></div>
+    </article>
+    <article th:if="${#fields.hasGlobalErrors()}" class="message is-danger">
+        <div class="message-body">
+            <p th:each="error: ${#fields.globalErrors()}" th:text="${error}"></p>
+        </div>
+    </article>
+</div>
+
+</body>
+</html>

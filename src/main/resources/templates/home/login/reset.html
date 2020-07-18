@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+<body>
+
+<section class="section" layout:fragment="main">
+    <div class="container">
+        <div class="columns">
+            <div class="column"><!-- Left empty for spacing --></div>
+            <div class="column is-half">
+                <div class="box">
+
+                    <h1 class="title" th:text="#{forgotPassword.title}"></h1>
+
+                    <form th:action="@{/login/reset}" method="POST" th:object="${userNewPassword}">
+
+                        <div th:replace="message :: form"></div>
+
+                        <div class="field">
+                            <label class="label" for="password" th:text="#{forgotPassword.reset.newPassword}"></label>
+                            <div class="field-body">
+                                <div class="field">
+                                    <div class="control has-icons-right">
+                                        <input class="input" type="password" id="password" name="password"
+                                               th:placeholder="#{forgotPassword.reset.newPassword}"/>
+                                        <span class="icon is-small is-right">
+                                            <i class="fas fa-asterisk"></i>
+                                        </span>
+                                    </div>
+                                    <p class="help is-danger" th:errors="*{password}"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label" for="passwordConfirmation" th:text="#{forgotPassword.reset.passwordConfirmation}"></label>
+                            <div class="field-body">
+                                <div class="field">
+                                    <div class="control has-icons-right">
+                                        <input class="input" type="password" id="passwordConfirmation" name="passwordConfirmation"
+                                               th:placeholder="#{forgotPassword.reset.passwordConfirmation}"/>
+                                        <span class="icon is-small is-right">
+                                            <i class="fas fa-asterisk"></i>
+                                        </span>
+                                    </div>
+                                    <p class="help is-danger" th:errors="*{passwordConfirmation}"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field is-horizontal">
+                            <div class="field-body">
+                                <div class="field">
+                                    <div class="columns is-multiline">
+                                        <div class="column is-full-touch">
+                                            <div class="control has-text-right-desktop">
+                                                <button class="button is-primary" type="Submit">
+                                                    <span class="icon">
+                                                        <i class="fas fa-check"></i>
+                                                    </span>
+                                                    <span th:text="#{login.submit}"></span>
+                                                </button>
+                                                <input type="hidden" th:field="*{token}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="column"><!-- Left empty for spacing --></div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
