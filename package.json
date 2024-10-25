@@ -5,7 +5,7 @@
   "scripts": {
   },
   "dependencies": {
-    "vue": "^2.6.6",
+    "vue": "^3.0.0",
     "vue-axios": "^2.1.4",
     "vue-multiselect": "^2.1.0"
   },
